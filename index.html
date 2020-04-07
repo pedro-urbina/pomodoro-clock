@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Pomodoro Clock</title>
+    <meta name="description" content="Pomodoro Clock">
+    <meta name="author" content="Pedro Urbina">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main>
+        <div id="title" class="center">Pomodoro Clock</div>
+
+        <label for="work-setting" id="work-header" class="center">Work Period</label>
+        <input type="number" name="work-setting" id="work-setting" class="center" min="1" step="1" value="25"></input>
+        <label for="break-setting" id="break-header" class="center">Break Period</label>
+        <input type="number" name="break-setting" id="break-setting" class="center" min="1" step="1" value="5"></input>
+
+        <button id="play" class="center">Play</button>
+        <button id="pause" class="center">Pause</button>
+        <button id="stop" class="center">Stop</button>
+        <button id="reset" class="center">Reset</button>
+
+        <div id="timer-header" class="center">Work</div>
+        <div id="clock" class="center">25:00</div>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

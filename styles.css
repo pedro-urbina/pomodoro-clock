@@ -1,0 +1,80 @@
+/*main {
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "title title title title" 
+        "settings settings settings settings" 
+        "controls controls controls controls"
+        "timer timer timer timer";
+}
+
+#title {
+    grid-area: title;
+    margin: auto;
+}
+
+#settings {
+    grid-area: settings;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "work-header break-header" 
+        "work-setting break-setting";
+}
+#work-header {
+    grid-area: work-header;
+    margin: auto;
+}
+#work-setting {grid-area: work-setting;}
+#break-header {grid-area: break-header;}
+#break-setting {grid-area: break-setting;}
+
+#controls {
+    grid-area: controls;
+    display: flex;
+    justify-content: space-around;
+}
+
+#timer {
+    grid-area: timer;
+    display: flex;
+    justify-content: space-evenly;
+}*/
+
+main {
+    height: 75vh;
+    width: 75vh;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "title title title title" 
+        "work-header work-header break-header break-header" 
+        "work-setting work-setting break-setting break-setting" 
+        "play pause stop reset" 
+        "timer-header timer-header clock clock" ;
+    margin: auto;
+}
+
+.center {
+    display:flex;justify-content:center;align-items:center;
+}
+
+#title {grid-area: title;}
+
+#work-header {grid-area: work-header;}
+#work-setting {grid-area: work-setting;}
+#break-header {grid-area: break-header;}
+#break-setting {grid-area: break-setting;}
+
+#play {grid-area: play;}
+#pause {grid-area: pause;}
+#stop {grid-area: stop;}
+#reset {grid-area: reset;}
+
+#timer-header {grid-area: timer-header;}
+#clock {grid-area: clock;}
