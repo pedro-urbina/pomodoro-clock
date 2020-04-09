@@ -1,56 +1,14 @@
-/*main {
-    background-color: aliceblue;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-        "title title title title" 
-        "settings settings settings settings" 
-        "controls controls controls controls"
-        "timer timer timer timer";
+body {
+    background-color: #1D263B;
 }
-
-#title {
-    grid-area: title;
-    margin: auto;
-}
-
-#settings {
-    grid-area: settings;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-        "work-header break-header" 
-        "work-setting break-setting";
-}
-#work-header {
-    grid-area: work-header;
-    margin: auto;
-}
-#work-setting {grid-area: work-setting;}
-#break-header {grid-area: break-header;}
-#break-setting {grid-area: break-setting;}
-
-#controls {
-    grid-area: controls;
-    display: flex;
-    justify-content: space-around;
-}
-
-#timer {
-    grid-area: timer;
-    display: flex;
-    justify-content: space-evenly;
-}*/
 
 main {
     height: 75vh;
-    width: 75vh;
+    width: 75vw;
     background-color: aliceblue;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 2fr 2fr 1fr 2fr;
     grid-template-areas: 
         "title title title title" 
         "work-header work-header break-header break-header" 
@@ -58,13 +16,35 @@ main {
         "play pause stop reset" 
         "timer-header timer-header clock clock" ;
     margin: auto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 
 .center {
     display:flex;justify-content:center;align-items:center;
 }
 
-#title {grid-area: title;}
+label {
+    font-size: 2vw;
+}
+
+button {
+    font-size: 4vw;
+}
+
+#title {
+    grid-area: title;
+    background-color: antiquewhite;
+    font-size: 9vw;
+}
+
+#timer-header {
+    font-size: 6vw;
+}
+
+#clock {
+    font-size: 8vw;
+}
 
 #work-header {grid-area: work-header;}
 #work-setting {grid-area: work-setting;}
