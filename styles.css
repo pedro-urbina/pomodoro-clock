@@ -8,10 +8,9 @@ main {
     background-color: aliceblue;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 2fr 2fr 1fr 2fr;
+    grid-template-rows: 3fr 2fr 1fr 2fr;
     grid-template-areas: 
         "title title title title" 
-        "work-header work-header break-header break-header" 
         "work-setting work-setting break-setting break-setting" 
         "play pause stop reset" 
         "timer-header timer-header clock clock" ;
@@ -38,23 +37,60 @@ button {
     font-size: 9vw;
 }
 
-#timer-header {
-    font-size: 6vw;
+#work-setting {
+    grid-area: work-setting;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+        "work-up work-up" 
+        "work-header work-value" 
+        "work-down work-down";
 }
-
-#clock {
-    font-size: 8vw;
+#work-up {grid-area: work-up;}
+#work-header {
+    grid-area: work-header;
+    font-size: 4vw;
 }
+#work-value {
+    grid-area: work-value;
+    font-size: 5vw;
+}
+#work-down {grid-area: work-down;}
 
-#work-header {grid-area: work-header;}
-#work-setting {grid-area: work-setting;}
-#break-header {grid-area: break-header;}
-#break-setting {grid-area: break-setting;}
+#break-setting {
+    grid-area: break-setting;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+        "break-up break-up" 
+        "break-header break-value" 
+        "break-down break-down";
+}
+#break-up {grid-area: break-up;}
+#break-header {
+    grid-area: break-header;
+    font-size: 4vw;
+}
+#break-value {
+    grid-area: break-value;
+    font-size: 5vw;
+}
+#break-down {grid-area: break-down;}
+
 
 #play {grid-area: play;}
 #pause {grid-area: pause;}
 #stop {grid-area: stop;}
 #reset {grid-area: reset;}
 
-#timer-header {grid-area: timer-header;}
-#clock {grid-area: clock;}
+#clock-header {
+    grid-area: timer-header;
+    font-size: 6vw;
+}
+
+#clock {
+    grid-area: clock;
+    font-size: 8vw;
+}

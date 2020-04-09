@@ -14,20 +14,29 @@
 
 <body>
     <main>
-        <h1 id="title" class="center">Pomodoro Clock</h1>
+        <h1 id="title" class="center">Pomodoro Clock</h1>        
 
-        <label for="work-setting" id="work-header" class="center">Work Period</label>
-        <input type="number" name="work-setting" id="work-setting" class="center" min="1" step="1" value="25"></input>
-        <label for="break-setting" id="break-header" class="center">Break Period</label>
-        <input type="number" name="break-setting" id="break-setting" class="center" min="1" step="1" value="5"></input>
+        <div id="work-setting">
+            <button id="work-up">&#9650;</button>
+            <span id="work-header" class="center">Work</span>
+            <span id="work-value" class="center">2</span>
+            <button id="work-down">&#9660;</button>
+        </div>
+
+        <div id="break-setting">
+            <button id="break-up">&#9650;</button>
+            <span id="break-header" class="center">Break</span>
+            <span id="break-value" class="center">1</span>
+            <button id="break-down">&#9660;</button>
+        </div>
 
         <button id="play" class="center">&#9654;</button>
         <button id="pause" class="center">&#9208;</button>
         <button id="stop" class="center">&#9209;</button>
-        <button id="reset" class="center">&#8634;</button>
+        <button id="default" class="center">&#8634;</button>
 
-        <div id="timer-header" class="center">Work</div>
-        <div id="clock" class="center">25:00</div>
+        <div id="clock-header" class="center"></div>
+        <div id="clock" class="center"></div>
     </main>
 
     <script src="scripts.js"></script>
