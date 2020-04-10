@@ -1,84 +1,104 @@
 body {
-    background-color: #1D263B;
+    background-color: #27221c;    
 }
 
 main {
-    height: 75vh;
-    width: 75vw;
-    background-color: aliceblue;
+    background-color: #2C733B;
+    height: 50vh;
+    width: 35vw;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 8px;
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3fr 2fr 1fr 2fr;
+    grid-template-rows: 2fr 2fr 2fr 1fr;
     grid-template-areas: 
         "title title title title" 
         "work-setting work-setting break-setting break-setting" 
-        "play pause stop reset" 
-        "timer-header timer-header clock clock" ;
-    margin: auto;
+        "clock-header clock-header clock clock"
+        "play pause stop reset";
+    justify-items: center;
+    align-items: center;
+
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-}
-
-.center {
-    display:flex;justify-content:center;align-items:center;
-}
-
-label {
-    font-size: 2vw;
-}
-
-button {
-    font-size: 4vw;
+    color: #C19861;
 }
 
 #title {
     grid-area: title;
-    background-color: antiquewhite;
-    font-size: 9vw;
+    color: tomato;
+    margin: 0;
+    font-size: 3vw;
 }
 
 #work-setting {
     grid-area: work-setting;
+    width: 100%;
+    height: 100%;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas: 
-        "work-up work-up" 
+        ". work-up" 
         "work-header work-value" 
-        "work-down work-down";
+        ". work-down";
+    justify-items: center;
+    align-items: center;
 }
 #work-up {grid-area: work-up;}
 #work-header {
     grid-area: work-header;
-    font-size: 4vw;
+    font-size: 2vw;
 }
 #work-value {
     grid-area: work-value;
-    font-size: 5vw;
+    font-size: 3vw;
+    color: white;
 }
 #work-down {grid-area: work-down;}
 
 #break-setting {
     grid-area: break-setting;
+    width: 100%;
+    height: 100%;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas: 
-        "break-up break-up" 
+        ". break-up" 
         "break-header break-value" 
-        "break-down break-down";
+        ". break-down";
+    justify-items: center;
+    align-items: center;
 }
 #break-up {grid-area: break-up;}
 #break-header {
     grid-area: break-header;
-    font-size: 4vw;
+    font-size: 2vw;
 }
 #break-value {
     grid-area: break-value;
-    font-size: 5vw;
+    font-size: 3vw;
+    color: white;
 }
 #break-down {grid-area: break-down;}
 
+/* .center {
+    display:flex;justify-content:center;align-items:center;
+} */
+
+button {
+    background-color: transparent;
+    border: 0px solid tomato;
+    border-radius: 4px;
+
+    font-size: 1.5vw;
+    color: tomato;
+}
 
 #play {grid-area: play;}
 #pause {grid-area: pause;}
@@ -86,11 +106,12 @@ button {
 #reset {grid-area: reset;}
 
 #clock-header {
-    grid-area: timer-header;
-    font-size: 6vw;
+    grid-area: clock-header;
+    font-size: 3vw;
 }
 
 #clock {
     grid-area: clock;
-    font-size: 8vw;
+    font-size: 4vw;
+    color: white;
 }
