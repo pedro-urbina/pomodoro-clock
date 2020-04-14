@@ -84,6 +84,7 @@ body {background-color: #27221c;}
 #pause {grid-area: pause;}
 #stop {grid-area: stop;}
 #reset {grid-area: reset;}
+#play, #pause, #stop, #reset {font-family: Arial, Helvetica, sans-serif;}
 
 #clock-header {
     grid-area: clock-header;
