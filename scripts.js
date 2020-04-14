@@ -144,6 +144,8 @@ function removeLinealTomato() {
     linealTomato.parentNode.removeChild(linealTomato);
 }
 
+// Timer Classes ***************************
+
 class Timer {
     constructor(hoursAtBeginning, minutesAtBeginning, secondsAtBeginning, type, period) {
         // the counters that represent hours, minutes and seconds are created and set to have the correct initial values
