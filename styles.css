@@ -1,6 +1,4 @@
-body {
-    background-color: #27221c;    
-}
+body {background-color: #27221c;}
 
 #main-container {
     display: flex;
@@ -15,14 +13,14 @@ body {
 #timer-container {
     background-color: #2C733B;
     height: 60vh;
-    width: 30vw;
+    width: 25vw;
     margin: 16px;
     border-radius: 8px;
     box-shadow: 0 0 16px 2px tomato;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 2.5fr 2fr 1fr;
+    grid-template-rows: 2fr 3fr 2fr 1fr;
     grid-template-areas: 
         "title title title title" 
         "work-setting work-setting break-setting break-setting" 
@@ -36,62 +34,67 @@ body {
     grid-area: title;
     color: tomato;
     margin: 0;
-    font-size: 3vw;
+    font-size: 4vh;
+}
+
+#work-setting, #break-setting {    
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+
+    font-size: 3vh;
 }
 
 #work-setting {
     grid-area: work-setting;
-    width: 100%;
-    height: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas: 
         ". work-up" 
         "work-header work-value" 
         ". work-down";
-    justify-items: center;
-    align-items: center;
 }
-#work-up {grid-area: work-up;}
-#work-header {
-    grid-area: work-header;
-    font-size: 2vw;
-}
-#work-value {
-    grid-area: work-value;
-    font-size: 3vw;
-    color: white;
-}
-#work-down {grid-area: work-down;}
 
 #break-setting {
     grid-area: break-setting;
-    width: 100%;
-    height: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas: 
         ". break-up" 
         "break-header break-value" 
         ". break-down";
-    justify-items: center;
-    align-items: center;
 }
-#break-up {grid-area: break-up;}
-#break-header {
-    grid-area: break-header;
-    font-size: 2vw;
-}
-#break-value {
-    grid-area: break-value;
-    font-size: 3vw;
+
+#work-value, #break-value {
+    font-size: 4vh;
     color: white;
 }
+
+#work-header {grid-area: work-header;}
+#work-value {grid-area: work-value;}
+#work-up {grid-area: work-up;}
+#work-down {grid-area: work-down;}
+#break-header {grid-area: break-header;}
+#break-value {grid-area: break-value;}
+#break-up {grid-area: break-up;}
 #break-down {grid-area: break-down;}
+
+#play {grid-area: play;}
+#pause {grid-area: pause;}
+#stop {grid-area: stop;}
+#reset {grid-area: reset;}
+
+#clock-header {
+    grid-area: clock-header;
+    font-size: 4vh;
+}
+
+#clock {
+    grid-area: clock;
+    font-size: 5vh;
+    color: white;
+}
 
 button {
     background-color: transparent;
@@ -100,7 +103,7 @@ button {
     outline-width: 0;
     padding: 0.5vh 2vw 0.5vh 2vw;
 
-    font-size: 1.5vw;
+    font-size: 3vh;
     color: tomato;
 }
 
@@ -113,46 +116,15 @@ button:active {
     color: #2C733B;
 }
 
-#clock-header {
-    grid-area: clock-header;
-    font-size: 3vw;
-}
-
-#clock {
-    grid-area: clock;
-    font-size: 4vw;
-    color: white;
-}
-
-#play {grid-area: play;}
-#pause {grid-area: pause;}
-#stop {grid-area: stop;}
-#reset {grid-area: reset;}
-
-#tomato-collection {width: 30vw;}
-
-@media (max-width: 1050px) {
-    #timer-container {
-        height:75vh;
-        width: 95vw;
-    }
-    #title {font-size: 4.5vw;}
-    #work-header, #break-header {font-size: 3vw;}
-    #work-value, #break-value {font-size: 4.5vw;}
-    button {
-        padding: 0.75vh 3vw 0.75vh 3vw;    
-        font-size: 3vw;
-    }
-    button:hover {border-width: 0px;}
-    #clock-header {font-size: 4.5vw;}    
-    #clock {font-size: 6vw;}
-    #tomato-collection {width: 95vw;}
-}
+#tomato-collection {width: 25vw;}
 
 img {margin: 0 10px;}
 
+
+ /* Demo Switch */
+ 
 #demo-switch {
-    width: 100%;
+    width: 25vw;
     display:flex;
     align-items:center;
 }
@@ -224,3 +196,22 @@ img {margin: 0 10px;}
   .slider.round:before {
     border-radius: 50%;
   }
+
+  @media (max-width: 1050px) {
+    #timer-container {
+        height:75vh;
+        width: 95vw;
+    }
+    #title {font-size: 4.5vw;}
+    #work-header, #break-header {font-size: 3vw;}
+    #work-value, #break-value {font-size: 4.5vw;}
+    button {
+        padding: 0.75vh 3vw 0.75vh 3vw;    
+        font-size: 3vw;
+    }
+    button:hover {border-width: 0px;}
+    #clock-header {font-size: 4.5vw;}    
+    #clock {font-size: 6vw;}
+    #tomato-collection {width: 95vw;}
+    #demo-switch {width: 95vw;}
+}

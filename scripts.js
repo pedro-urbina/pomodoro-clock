@@ -107,7 +107,8 @@ function switchTimer() {
         currentTimer = workTimer;
     }
     clockHeader.textContent = currentTimer.type;
-    currentTimer.run();
+    let interval = demoSwitch.checked ? 100 : 1000;
+    currentTimer.run(interval);
 }
 
 // Tomato Functions ***************************
