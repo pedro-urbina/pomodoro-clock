@@ -12,32 +12,46 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"></head>
 <body>
-    <main>
-        <h1 id="title" class="center">Pomodoro Clock</h1>        
+    <div id="main-container">
 
-        <div id="work-setting">
-            <button id="work-up">&#9650;</button>
-            <span id="work-header" class="center">Work</span>
-            <span id="work-value" class="center"></span>
-            <button id="work-down">&#9660;</button>
+        <div id="demo-switch">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <label id="text">Demo Speed</label>
         </div>
 
-        <div id="break-setting">
-            <button id="break-up">&#9650;</button>
-            <span id="break-header" class="center">Break</span>
-            <span id="break-value" class="center"></span>
-            <button id="break-down">&#9660;</button>
+        <div id="timer-container">
+            <h1 id="title" class="center">Pomodoro Clock</h1>        
+    
+            <div id="work-setting">
+                <button id="work-up">&#9650;</button>
+                <span id="work-header" class="center">Work</span>
+                <span id="work-value" class="center"></span>
+                <button id="work-down">&#9660;</button>
+            </div>
+    
+            <div id="break-setting">
+                <button id="break-up">&#9650;</button>
+                <span id="break-header" class="center">Break</span>
+                <span id="break-value" class="center"></span>
+                <button id="break-down">&#9660;</button>
+            </div>
+    
+            <button id="play" class="center">&#9654;</button>
+            <button id="pause" class="center">&#9208;</button>
+            <button id="stop" class="center">&#9209;</button>
+            <button id="default" class="center">&#8634;</button>
+    
+            <div id="clock-header" class="center"></div>
+            <div id="clock" class="center"></div>
         </div>
 
-        <button id="play" class="center">&#9654;</button>
-        <button id="pause" class="center">&#9208;</button>
-        <button id="stop" class="center">&#9209;</button>
-        <button id="default" class="center">&#8634;</button>
+        <div id="tomato-collection"></div>        
+    </div>
 
-        <div id="clock-header" class="center"></div>
-        <div id="clock" class="center"></div>
-    </main>
-
+    <audio id="alert-chime" src="audio/chimes.mp3"></audio>
     <script src="scripts.js"></script>
 </body>
 

@@ -1,13 +1,17 @@
-let initialWorkPeriod = 2;
+let initialWorkPeriod = 25;
 const workPeriodDisplay = document.getElementById("work-value");
 workPeriodDisplay.textContent = initialWorkPeriod;
 
-let initialBreakPeriod = 1;
+let initialBreakPeriod = 5;
 const breakPeriodDisplay = document.getElementById("break-value");
 breakPeriodDisplay.textContent = initialBreakPeriod;
 
 const clockHeader = document.getElementById("clock-header");
 const clock = document.getElementById("clock");
+
+const alertChime = document.getElementById("alert-chime");
+
+const demoSwitch = document.querySelector("input");
 
 let running = false;
 let paused = false;
@@ -43,18 +47,24 @@ function handler(id) {
             break;
 
         case "play":
-            if (running) break;   
-            currentTimer.run();
+            if (running) break;
+            let interval = demoSwitch.checked ? 100 : 1000;
+            demoSwitch.disabled = true;
+            currentTimer.run(interval);
+            addTomato();
             break;
 
         case "pause":
             currentTimer.pause();
+            demoSwitch.disabled = false;
             break;
             
         case "stop":
             currentTimer.stop();
             currentTimer.reset();
             updateClock();
+            removeLinealTomato();
+            demoSwitch.disabled = false;
             break;
 
         case "default":
@@ -67,21 +77,70 @@ function handler(id) {
             currentTimer = workTimer;
             clockHeader.textContent = currentTimer.type;
             updateClock();
+            removeLinealTomato();
+            demoSwitch.disabled = false;
             break;
     }
 }
 
-function updateClock(timeRemaining) {
+function updateClock(secondsRemaining, periodMinutes) {
     clock.textContent = currentTimer.toString();
-    if (timeRemaining <= 0) switchTimer();
+
+    if (currentTimer === workTimer && running) {
+        let periodSeconds = periodMinutes * 60;
+        let secondsElapsed = periodSeconds - secondsRemaining;
+        growTomato(secondsElapsed / periodSeconds);
+    } 
+
+    if (secondsRemaining <= 0) switchTimer();
 }
 
 function switchTimer() {
+    alertChime.play();
     currentTimer.stop();
     currentTimer.reset();
-    currentTimer = currentTimer === workTimer ? breakTimer : workTimer;
+    if (currentTimer === workTimer) {
+        fillTomato();
+        currentTimer = breakTimer;
+    } else {
+        addTomato();
+        currentTimer = workTimer;
+    }
     clockHeader.textContent = currentTimer.type;
     currentTimer.run();
+}
+
+// Tomato Functions ***************************
+
+const tomatoCollection = document.getElementById("tomato-collection");
+const tomatoSize = 64; //px
+
+function addTomato() {
+    const linealTomato = document.createElement("img");
+    linealTomato.setAttribute("id", "tomato-lineal");
+    linealTomato.setAttribute("src", "images/tomato-lineal.png");
+    linealTomato.setAttribute("width", "0px");
+    linealTomato.setAttribute("height", "auto");
+    tomatoCollection.appendChild(linealTomato);
+}
+
+function growTomato(percentTimeElapsed) {
+    const linealTomato = document.getElementById("tomato-lineal");
+    linealTomato.setAttribute("width", `${percentTimeElapsed * tomatoSize}px`);
+    console.log("Tomato size = " + percentTimeElapsed)
+}
+
+function fillTomato() {
+    removeLinealTomato();
+    const fullTomato = document.createElement("img");
+    fullTomato.setAttribute("src", "images/tomato-full.png");
+    fullTomato.setAttribute("margin-right", "20px");
+    tomatoCollection.appendChild(fullTomato);
+}
+
+function removeLinealTomato() {
+    const linealTomato = document.getElementById("tomato-lineal");
+    linealTomato.parentNode.removeChild(linealTomato);
 }
 
 class Timer {
@@ -133,9 +192,9 @@ class Timer {
         return this.period;
     }
 
-    run() {
+    run(interval) {
         let _this = this;
-        running = setInterval(function(){_this.tickDown(1);}, 100);
+        running = setInterval(function(){_this.tickDown(1);}, interval);
     }
 
     pause() {
@@ -160,7 +219,7 @@ class Timer {
                     this.hours.previous();
             }
         }
-        updateClock(this.timeRemaining());
+        updateClock(this.timeRemaining(), this.period);
     }
 
     tickUp(n) {

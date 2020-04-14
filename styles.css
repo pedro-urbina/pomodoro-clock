@@ -2,17 +2,27 @@ body {
     background-color: #27221c;    
 }
 
-main {
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #C19861;
+}
+
+#timer-container {
     background-color: #2C733B;
-    height: 50vh;
-    width: 35vw;
-    margin: auto;
-    margin-top: 10%;
+    height: 60vh;
+    width: 30vw;
+    margin: 16px;
     border-radius: 8px;
+    box-shadow: 0 0 16px 2px tomato;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 2fr 2fr 1fr;
+    grid-template-rows: 2fr 2.5fr 2fr 1fr;
     grid-template-areas: 
         "title title title title" 
         "work-setting work-setting break-setting break-setting" 
@@ -20,10 +30,6 @@ main {
         "play pause stop reset";
     justify-items: center;
     align-items: center;
-
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    color: #C19861;
 }
 
 #title {
@@ -87,23 +93,25 @@ main {
 }
 #break-down {grid-area: break-down;}
 
-/* .center {
-    display:flex;justify-content:center;align-items:center;
-} */
-
 button {
     background-color: transparent;
     border: 0px solid tomato;
     border-radius: 4px;
+    outline-width: 0;
+    padding: 0.5vh 2vw 0.5vh 2vw;
 
     font-size: 1.5vw;
     color: tomato;
 }
 
-#play {grid-area: play;}
-#pause {grid-area: pause;}
-#stop {grid-area: stop;}
-#reset {grid-area: reset;}
+button:hover {
+    border-width: 2px;
+}
+
+button:active {
+    background-color: tomato;
+    color: #2C733B;
+}
 
 #clock-header {
     grid-area: clock-header;
@@ -115,3 +123,104 @@ button {
     font-size: 4vw;
     color: white;
 }
+
+#play {grid-area: play;}
+#pause {grid-area: pause;}
+#stop {grid-area: stop;}
+#reset {grid-area: reset;}
+
+#tomato-collection {width: 30vw;}
+
+@media (max-width: 1050px) {
+    #timer-container {
+        height:75vh;
+        width: 95vw;
+    }
+    #title {font-size: 4.5vw;}
+    #work-header, #break-header {font-size: 3vw;}
+    #work-value, #break-value {font-size: 4.5vw;}
+    button {
+        padding: 0.75vh 3vw 0.75vh 3vw;    
+        font-size: 3vw;
+    }
+    button:hover {border-width: 0px;}
+    #clock-header {font-size: 4.5vw;}    
+    #clock {font-size: 6vw;}
+    #tomato-collection {width: 95vw;}
+}
+
+img {margin: 0 10px;}
+
+#demo-switch {
+    width: 100%;
+    display:flex;
+    align-items:center;
+}
+
+#demo-switch #text {
+    color: white;
+    padding-left: 10px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: tomato;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px tomato;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
